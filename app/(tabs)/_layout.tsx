@@ -27,9 +27,10 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
 });
+import { ScrollView } from "react-native-gesture-handler";
 import { createDrawerNavigator, DrawerContentComponentProps } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { FontAwesome, FontAwesome5, Fontisto, Ionicons, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome, FontAwesome5, Fontisto, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import HomeScreen from "./home";
 import DoctorsScreen from "./doctors";
 import ProfileScreen from "./profile";
@@ -169,7 +170,7 @@ const CustomDrawerContent: React.FC<DrawerContentComponentProps> = ({ navigation
 }
 
 
-const styles = StyleSheet.create({
+const layoutStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
