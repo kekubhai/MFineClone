@@ -9,12 +9,17 @@ export default {
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorLight,
   },
-  dark: {
-    text: '#fff',
-    background: '#000',
-    tint: tintColorDark,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorDark,
-  },
+dark: {
+  text: '#fff',
+  background: '#000',
+  tint: tintColorDark,
+  tabIconDefault: '#ccc',
+  tabIconSelected: tintColorDark,
+},
+extra: {
+  PRIMARY:"#0F4e87",
+  DARK_Gray:"#333",
+  GRAY:"#f8f8f8",
+},
 };
 

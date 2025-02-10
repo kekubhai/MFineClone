@@ -37,6 +37,9 @@ import ProfileScreen from "./profile";
 import DoctorSelectionScreen from "@/components/doctors/DoctorList";
 import DoctorCard from "@/components/doctors/DoctorCard";
 import ExploreScreen from "./home";
+import { LabTestsScreen } from "./labtests";
+import TabTwoScreen from "./cosultNow";
+import LoginScreen from "../login";
 const Tab = createBottomTabNavigator();
 
 const MainTabs = () => (
@@ -44,10 +47,10 @@ const MainTabs = () => (
     <Tab.Screen name="Explore" component={HomeScreen} options={{
       tabBarIcon: ({ color, size }) => (<FontAwesome name="search" size={size} color={color} />)
     }} />
-    <Tab.Screen name="Lab Tests" component={DoctorsScreen} options={{
+    <Tab.Screen name="Lab Tests" component={LabTestsScreen} options={{
       tabBarIcon: ({ color, size }) => (<Ionicons name="flask-outline" size={size} color={color} />)
     }} />
-    <Tab.Screen name="Consult Now" component={ProfileScreen} options={{
+    <Tab.Screen name="Consult Now" component={LoginScreen} options={{
       tabBarIcon: ({ color, size }) => (<MaterialIcons name="chat" size={size} color={color} />)
     }} />
     <Tab.Screen name="Medicines" component={HomeScreen} options={{
@@ -67,7 +70,7 @@ const CustomDrawerContent: React.FC<DrawerContentComponentProps> = ({ navigation
             <TouchableOpacity>
               <Ionicons name="menu" size={24} color="#333" />
             </TouchableOpacity>
-            <Text style={styles.headerTitle}>MedikaProfessionals</Text>
+            <Text style={styles.headerTitle}>MFine Clone</Text>
             <View style={styles.headerRight}>
               <TouchableOpacity style={styles.headerIcon}>
                 <Ionicons name="cart-outline" size={24} color="#333" />

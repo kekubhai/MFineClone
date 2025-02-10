@@ -4,7 +4,7 @@ import React from 'react'
 const DoctorsScreen = () => {
   return (
     <View>
-     <Text> DoctorsScreen</Text>
+     <Text style={{color:'white'}}> DoctorsScreen</Text>
     </View>
   )
 }
