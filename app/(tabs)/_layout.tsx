@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 
+import { Ionicons } from "@expo/vector-icons";
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
@@ -159,7 +159,7 @@ const CustomDrawerContent: React.FC<DrawerContentComponentProps> = ({ navigation
 );export default function Layout() {
   return (
     <Drawer.Navigator drawerContent={CustomDrawerContent}>
-      <Drawer.Screen name="MFine Home" component={ExploreScreen} />
+      <Drawer.Screen name="MFine Home" component={MainTabs} />
       <Drawer.Screen name="Consult Now" component={DoctorSelectionScreen} />
       <Drawer.Screen name="Book Health Packages" component={HomeScreen} />
       <Drawer.Screen name="Order Lab Test" component={HomeScreen} />

@@ -26,34 +26,28 @@ const ExploreScreen: React.FC = () => {
     {
       id: '1',
       title: 'Online Consultations',
-    //  image: require('../assets/online-consultation.png'),
     },
     {
       id: '2',
       title: 'Full Body Checkup',
-    //  image: require('../assets/body-checkup.png'),
     },
     {
       id: '3',
       title: 'Order Medicines',
-   //   image: require('../assets/medicines.png'),
       isNew: true,
     },
     {
       id: '4',
       title: 'Skincare',
-    //  image: require('../assets/skincare.png'),
       discount: '40% OFF',
     },
     {
       id: '5',
       title: 'X-rays, MRIs & Scans',
-      //image: require('../assets/xray.png'),
     },
     {
       id: '6',
       title: 'Lab Tests',
-     // image: require('../assets/lab-tests.png'),
       discount: '60% OFF',
     },
   ];
@@ -75,12 +69,43 @@ const ExploreScreen: React.FC = () => {
     },
   ];
 
+  const topDoctors = [
+    {
+      id: '1',
+      name: 'Dr. Sarah Johnson',
+      specialty: 'Cardiologist',
+      rating: 4.9,
+      reviews: 127,
+      available: true,
+    },
+    {
+      id: '2', 
+      name: 'Dr. Michael Chen',
+      specialty: 'Dermatologist',
+      rating: 4.8,
+      reviews: 89,
+      available: true,
+    }
+  ];
+
+  const healthArticles = [
+    {
+      id: '1',
+      title: 'Tips for Better Sleep',
+      category: 'Wellness',
+      readTime: '5 min read'
+    },
+    {
+      id: '2',
+      title: 'Understanding Blood Pressure',
+      category: 'Health',
+      readTime: '7 min read'
+    }
+  ];
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        {/* Header */}
-    
-
         {/* Services Grid */}
         <View style={styles.servicesGrid}>
           {services.map((service) => (
@@ -90,7 +115,6 @@ const ExploreScreen: React.FC = () => {
               onPress={() => console.log(`Selected ${service.title}`)}
             >
               <View style={styles.serviceImageContainer}>
-              
                 {service.discount && (
                   <View style={styles.discountBadge}>
                     <Text style={styles.discountText}>{service.discount}</Text>
@@ -115,7 +139,6 @@ const ExploreScreen: React.FC = () => {
               Avail a FREE{'\n'}Cosmetologist{'\n'}Consult today!
             </Text>
           </View>
-       
         </View>
 
         {/* Health Checks Section */}
@@ -143,13 +166,65 @@ const ExploreScreen: React.FC = () => {
           </ScrollView>
         </View>
 
-        {/* Bottom Navigation */}
-    
+        {/* Top Doctors Section */}
+        <View style={ { backgroundColor: '#fff', padding: 16, marginTop: 16 }}>
+          <View style={styles.sectionHeader}>
+            <Text style={[styles.sectionTitle, { fontSize: 18, fontWeight: '600', color: '#333' }]}>Top Doctors</Text>
+            <TouchableOpacity>
+              <Text style={[styles.viewAllButton, { color: '#007AFF' }]}>View All</Text>
+            </TouchableOpacity>
+          </View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {topDoctors.map((doctor) => (
+              <TouchableOpacity key={doctor.id} style={ { 
+                backgroundColor: '#fff',
+                padding: 16,
+                marginRight: 16,
+                borderRadius: 12,
+                shadowColor: '#000',
+                shadowOffset: { width: 0, height: 2 },
+                shadowOpacity: 0.1,
+                shadowRadius: 4,
+                elevation: 3,
+                width: 240
+              }}>
+                <View style={ { gap: 8 }}>
+                  <Text style={[ { fontSize: 16, fontWeight: '600', color: '#333' }]}>{doctor.name}</Text>
+                  <Text style={{ fontSize: 14, color: '#666' }}>{doctor.specialty}</Text>
+                  <View style={[ { flexDirection: 'row', alignItems: 'center', gap: 4 }]}>
+                    <Ionicons name="star" size={16} color="#FFD700" />
+                    <Text style={[ { fontSize: 14, fontWeight: '500', color: '#333' }]}>{doctor.rating}</Text>
+                    <Text style={[ { fontSize: 14, color: '#666' }]}>({doctor.reviews} reviews)</Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
+
+        {/* Health Articles Section */}
+        <View style={{ backgroundColor: '#fff', padding: 16, marginTop: 16 }}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Health Articles</Text>
+            <TouchableOpacity>
+              <Text style={styles.viewAllButton}>View All</Text>
+            </TouchableOpacity>
+          </View>
+          {healthArticles.map((article) => (
+            <TouchableOpacity key={article.id} style={{ backgroundColor: '#fff', padding: 16, marginBottom: 16 }}>
+              <View style={{ flexDirection: 'row', gap: 16 }}>
+                <Text style={{flexDirection:'row',gap:16}}>{article.category}</Text>
+                <Text style={{}}>{article.title}</Text>
+                <Text style={{  flexDirection:'row',gap:16}}>{article.readTime}</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
+        </View>
+
       </ScrollView>
     </SafeAreaView>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
